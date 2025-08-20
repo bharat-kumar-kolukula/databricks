@@ -8,14 +8,14 @@ include:
 
 targets:
   # The 'dev' target, for development purposes. This target is the default.
-  dev:
+  development:
     mode: development
     default: true
     workspace:
       host: https://dbc-99510b43-f14c.cloud.databricks.com
 
   # The 'prod' target, used for production deployment.
-  prod:
+  production:
     mode: production
     workspace:
       host: https://dbc-99510b43-f14c.cloud.databricks.com
