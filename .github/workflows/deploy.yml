@@ -31,7 +31,9 @@ jobs:
 
       # Step 4: Validate the bundle before deploy
       - name: Validate Bundle
-        run: databricks bundle validate -t prod
+        run: |
+          cd totally-awesome-bundle
+          databricks bundle validate -t prod
 
       # Step 5: Deploy to PROD
       - name: Deploy Bundle to PROD
