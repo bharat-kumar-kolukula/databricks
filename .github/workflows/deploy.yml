@@ -37,4 +37,6 @@ jobs:
 
       # Step 5: Deploy to PROD
       - name: Deploy Bundle to PROD
-        run: databricks bundle deploy -t prod
+        run: |
+          cd totally-awesome-bundle
+          databricks bundle deploy -t prod
