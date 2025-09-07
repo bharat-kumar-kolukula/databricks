@@ -1,0 +1,36 @@
+name: Deploy to PROD
+
+on:
+  push:
+    branches:
+      - main   # Only run when code is merged/pushed to main
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Databricks CLI
+      - name: Install Databricks CLI
+        run: pip install databricks-cli databricks-bundles
+
+      # Step 3: Authenticate with Databricks
+      - name: Configure Databricks Auth
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_PROD_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_PROD_TOKEN }}
+        run: |
+          echo "DATABRICKS_HOST=$DATABRICKS_HOST" >> $GITHUB_ENV
+          echo "DATABRICKS_TOKEN=$DATABRICKS_TOKEN" >> $GITHUB_ENV
+
+      # Step 4: Validate the bundle before deploy
+      - name: Validate Bundle
+        run: databricks bundle validate -e prod
+
+      # Step 5: Deploy to PROD
+      - name: Deploy Bundle to PROD
+        run: databricks bundle deploy -e prod
