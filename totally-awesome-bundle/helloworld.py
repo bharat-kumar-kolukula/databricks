@@ -14,3 +14,6 @@ print("Welcome to Databricks Asset Bundle")
 # MAGIC     name string,
 # MAGIC     update_datetime timestamp default current_timestamp
 # MAGIC )
+# MAGIC using delta
+# MAGIC TBLPROPERTIES('delta.feature.allowColumnDefaults' = 'supported');
+# MAGIC
