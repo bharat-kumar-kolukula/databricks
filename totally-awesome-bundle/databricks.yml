@@ -13,7 +13,7 @@ targets:
     default: true
     workspace:
       host: https://dbc-99510b43-f14c.cloud.databricks.com
-      root_path: /Users/bharatkumarkolukula@gmail.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Users/bharatkumarkolukula@gmail.com/${bundle.name}/${bundle.target}
     run_as:
       user_name: bharatkumarkolukula@gmail.com
 
@@ -23,7 +23,7 @@ targets:
     workspace:
       host: https://dbc-99510b43-f14c.cloud.databricks.com
       # We always use /Users/bharatkumarkolukula@gmail.com for all resources to make sure we only have a single copy.
-      root_path: /Users/bharatkumarkolukula@gmail.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Users/bharatkumarkolukula@gmail.com/${bundle.name}/${bundle.target}
     run_as:
       # This runs as bharatkumarkolukula@gmail.com in production. We could also use a service principal here,
       # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
