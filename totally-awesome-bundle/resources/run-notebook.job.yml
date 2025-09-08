@@ -1,11 +1,11 @@
 resources:
   jobs:
     run_notebook:
-      name: run-notebook
+      name: demo
       queue:
         enabled: true
       tasks:
-        - task_key: notebook_task
+        - task_key: helloworld
           notebook_task:
             notebook_path: ../helloworld.py
       email_notifications:
